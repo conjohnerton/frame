@@ -39,7 +39,12 @@ async function checkStatus(dappId: string) {
   clearTimeout(retryTimer)
   const dapp = store('main.dapps', dappId)
   try {
-    const resolved = await nebula.resolve(dapp.ens)
+    const resolved = dapp.ens === 'send.frame.eth'
+      ? {
+          manifest: { version: '0.2-x' },
+          record: { content: 'Qmdg8qE8hDk5qJ9pDLP2a3oysAzJy5tF1k7uhoHvnADLz7' }
+        }
+      : await nebula.resolve(dapp.ens)
 
     const version = (resolved.manifest || {}).version || 'unknown'
 
