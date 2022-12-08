@@ -42,7 +42,7 @@ async function checkStatus(dappId: string) {
     const resolved = dapp.ens === 'send.frame.eth'
       ? {
           manifest: { version: '0.2-x' },
-          record: { content: 'QmXbDt3iRZGd5vZ6GdREZucreCRi8T8VVGBnNjAW3H4Smi' }
+          record: { content: 'QmQthKcMoXC1Ee2YZ4xF9QyvfwhecrV7xNzx827LpkR8BM' }
         }
       : await nebula.resolve(dapp.ens)
 
